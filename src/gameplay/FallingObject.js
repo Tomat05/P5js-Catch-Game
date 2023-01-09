@@ -2,19 +2,8 @@ class FallingObject {
     constructor() {
         this.position = createVector(100, 100);
         this.velocity = 0;
-        this.active = false;
     }
-
-    reset() {
-        this.active = false;
-        this.velocity = 0;
-        this.position.set(100, 100);
-    }
-
-    setActive() {
-        this.active = true;
-    }
-
+    
     draw() {
         push();
         fill(0, 255, 0);
@@ -28,9 +17,6 @@ class FallingObject {
     }
 
     update() {
-        if (!this.active) {
-            return;
-        }
         this.updatePosition();
         this.draw();
 

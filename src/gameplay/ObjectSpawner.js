@@ -1,34 +1,39 @@
 class ObjectSpawner {
 	constructor() {
 		this.maxObjectsInScene = 10;
-		this.availableObjects = []; // Pool of objects to use
-		this.numActiveObjects = 0;
-
+		this.fallingObjects = [];
+		this.numActiveObjects = 0
 		this.lastSpawnTime = 0;
 		this.timeToSpawn = 2500;
 	}
 
-	// Initial setup
-	setup() {
-		/* Create set number of objects on startup to reuse
-		*  (more efficient than creating and destroying objects over and over)*/
-		for (let i = 0; i < this.maxObjectsInScene; i++) {
-			this.availableObjects.push(new FallingObject());
-		}
-	}
-
-	// Moves an object from those available to the active array
+	// Spawn a new FallingObject
 	spawn() {
-		this.availableObjects[this.numActiveObjects].setActive();
-		this.numActiveObjects++;
+		if (this.numActiveObjects < this.maxObjectsInScene) {
+			console.log("spawn!");
+			this.fallingObjects[this.numActiveObjects] = new FallingObject();
+			this.numActiveObjects++;
+		}
 	}
 
 	// Updates the active objects
 	updateActiveObjects() {
-		for (let i = 0; i < this.numActiveObjects + 1; i++) {
-			let obj = this.availableObjects[i];
-			if (obj.update() > windowHeight + 40) {
-				obj.reset();
+		// console.log(this.fallingObjects);
+		if (this.numActiveObjects === 0) {
+			return;
+		}
+		for (let i = 0; i < this.numActiveObjects; i++) {
+			let obj = this.fallingObjects[i];
+			let objYPos
+			try {
+				objYPos = obj.update();
+			} catch (error) {
+				console.log("null value");
+				continue;
+			}
+
+			if (objYPos > windowHeight - 20) {
+				this.fallingObjects[i] = null;
 				this.numActiveObjects--;
 			}
 		}
@@ -37,9 +42,9 @@ class ObjectSpawner {
 	onFrameUpdate() {
 		this.updateActiveObjects();
 
-		// Speed up spawn rate every ~3000ms
+		// Speed up spawn rate every ~3000ms (range is to account for inconsistent frametime)
 		if (millis() % 3000 >= 2984 &&
-		millis() % 1000 <= 3016) {
+		millis() % 3000 <= 3016) {
 			this.timeToSpawn -= 100;
 		}
 		if (this.timeToSpawn < 100) {
@@ -52,7 +57,5 @@ class ObjectSpawner {
 			this.spawn();
 			this.lastSpawnTime = millis();
 		}
-
-		print(this.numActiveObjects);
 	}
 }
