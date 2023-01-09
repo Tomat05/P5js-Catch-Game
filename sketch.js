@@ -15,7 +15,7 @@ function draw() {
   if (inGame){
     player.update();
   }else if (inMenu){
-   menu.display();
+    menu.display();
    
  }
 }
@@ -27,4 +27,4 @@ function mousePressed(){
 		inMenu = false;
 	  }
 	}
-  }
+}
