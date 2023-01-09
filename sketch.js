@@ -1,17 +1,7 @@
 let player;
-let inGame = False;
-let inMenu = True;
-
-
-
-function mousePressed(){
-  if (inMenu = True){
-    inGame = doesGameStart();
-    if (inGame = True){
-      inMenu = False;
-    }
-  }
-}
+let inGame = false;
+let inMenu = true;
+let menu;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -22,10 +12,19 @@ function setup() {
 
 function draw() {
   background(220);
-  if (inGame = True){
+  if (inGame){
     player.update();
-  }else if (inMenu = True){
+  }else if (inMenu){
    menu.display();
    
  }
 }
+
+function mousePressed(){
+	if (inMenu){
+	  inGame = menu.doesGameStart();
+	  if (inGame){
+		inMenu = false;
+	  }
+	}
+  }

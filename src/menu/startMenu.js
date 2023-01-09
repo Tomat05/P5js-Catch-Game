@@ -1,6 +1,6 @@
 class startMenu{
-
     constructor(){
+        
     }
 
     display(){
