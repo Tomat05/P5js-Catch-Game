@@ -1,7 +1,20 @@
+let player;
+let spawner;
+
+let millisOld = 0;
+
 function setup() {
-  createCanvas(400, 400);
+	createCanvas(windowWidth, windowHeight);
+
+	player = new Player();
+
+	spawner = new ObjectSpawner();
+	spawner.setup();
 }
 
 function draw() {
-  background(220);
+	background(0);
+
+	player.onFrameUpdate();
+	spawner.onFrameUpdate();
 }
