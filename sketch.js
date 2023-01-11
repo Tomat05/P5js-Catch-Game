@@ -9,6 +9,7 @@ function setup() {
 	player = new Player();
 
 	spawner = new ObjectSpawner();
+	spawner.setup();
 }
 
 function draw() {
