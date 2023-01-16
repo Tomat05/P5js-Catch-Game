@@ -26,7 +26,7 @@ class FallingObject {
     }
 
     updatePosition() {
-        this.velocity -= 9.81 * (deltaTime / 1000);
+        this.velocity -= (9.81 * difficulty) * (deltaTime / 1000);
         this.position.set(this.position.x, this.position.y - this.velocity);
     }
 

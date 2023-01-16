@@ -2,6 +2,8 @@ let player;
 let inGame = false;
 let inMenu = true;
 let menu;
+let difficulty = 1.5;
+
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);

@@ -45,7 +45,7 @@ class ObjectSpawner {
 				this.timeBetweenSpawns = 400;
 				return;
 			}
-			this.timeBetweenSpawns *= 0.99;
+			this.timeBetweenSpawns *= 0.99 / difficulty;
 		}
 	}
 }
