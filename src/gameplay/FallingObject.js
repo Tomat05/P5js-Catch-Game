@@ -1,6 +1,6 @@
 class FallingObject {
     constructor() {
-        this.position = createVector(random(100, windowWidth - 100), 100);
+        this.position = createVector(100, 100);
         this.velocity = 0;
 
         this.active = false;
@@ -8,6 +8,7 @@ class FallingObject {
 
     setActive() {
         this.active = true;
+        this.position = createVector(random(100, windowWidth - 100), 100);
     }
 
     reset() {

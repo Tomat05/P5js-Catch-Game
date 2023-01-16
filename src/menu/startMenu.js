@@ -18,10 +18,10 @@ class startMenu{
     
     
     doesGameStart(){
-        lowX = (windowWidth/4) - (this.rectSize/2);      //bounds of the button
-        hiX = (windowWidth/4) - (this.rectSize/2) + this.rectSize;
-        lowY = (windowHeight/2)- (this.rectSize/4);
-        hiY = (windowHeight/2)- (this.rectSize/4) + this.rectSize/2;
+        let lowX = (windowWidth/4) - (this.rectSize/2);      //bounds of the button
+        let hiX = (windowWidth/4) - (this.rectSize/2) + this.rectSize;
+        let lowY = (windowHeight/2)- (this.rectSize/4);
+        let hiY = (windowHeight/2)- (this.rectSize/4) + this.rectSize/2;
         if (((mouseX > lowX) && (mouseX < hiX)) && ((mouseY > lowY) && (mouseY < hiY))){     //supposed to check if mouse is within box
             return true;     //update if game is playing
         }else{
@@ -31,7 +31,6 @@ class startMenu{
 
     instructions(){
         textSize(30);
-        // textAlign(CENTER);
         text ("Instruction ln 1",(windowWidth/4)*3,((windowHeight/2)-(windowHeight/8)));
         text ("Instruction ln 2",(windowWidth/4)*3,(windowHeight/2));
         text ("Instruction ln 3",(windowWidth/4)*3,((windowHeight/2)+(windowHeight/8)));

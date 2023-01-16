@@ -4,6 +4,10 @@ class Player {
         this.position = createVector(0, windowHeight - this.size - 50);
 	}
 
+    updatePlayerPos(){
+        this.position = createVector(0, windowHeight - this.size - 50);
+    }
+
     // handles drawing character sprite to screen
 	draw() {
 		push();

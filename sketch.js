@@ -14,8 +14,13 @@ function setup() {
 	spawner.setup();
 }
 
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
+  player.updatePlayerPos();
+}
+
 function draw() {
-  background(0);
+  background(220);
   if (inGame){
     player.onFrameUpdate();
     spawner.onFrameUpdate();
