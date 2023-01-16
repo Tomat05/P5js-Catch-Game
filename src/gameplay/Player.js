@@ -7,7 +7,7 @@ class Player {
     // handles drawing character sprite to screen
 	draw() {
 		push();
-		fill(0);
+		fill(255);
 		rect(this.position.x, this.position.y, this.size, this.size);
 		pop();
 	}
@@ -21,7 +21,7 @@ class Player {
     }
 
     // main update function for Player
-    update() {
+    onFrameUpdate() {
         this.move();
         this.draw();
     }

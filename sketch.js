@@ -4,20 +4,24 @@ let inMenu = true;
 let menu;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-
-  player = new Player();
+	createCanvas(windowWidth, windowHeight);
+  
   menu = new startMenu();
+
+	player = new Player();
+  
+  spawner = new ObjectSpawner();
+	spawner.setup();
 }
 
 function draw() {
-  background(220);
+  background(0);
   if (inGame){
-    player.update();
+    player.onFrameUpdate();
+    spawner.onFrameUpdate();
   }else if (inMenu){
     menu.display();
-   
- }
+  }
 }
 
 function mousePressed(){
