@@ -24,9 +24,8 @@ class startMenu{
         let hiY = (windowHeight/2)- (this.rectSize/4) + this.rectSize/2;
         if (((mouseX > lowX) && (mouseX < hiX)) && ((mouseY > lowY) && (mouseY < hiY))){     //supposed to check if mouse is within box
             return true;     //update if game is playing
-        }else{
-            return false;
         }
+        return false;
     }
 
     instructions(){
