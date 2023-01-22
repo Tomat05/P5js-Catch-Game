@@ -36,6 +36,13 @@ class FallingObject {
         }
         this.updatePosition();
         if (this.position.y >= windowHeight + 40) {
+            missed++;
+            return true;
+        }
+
+        if (this.position.x > mouseX - 37.5 && this.position.x < mouseX + 37.5
+            && this.position.y >= windowHeight - 125) {
+            caught++;
             return true;
         }
 

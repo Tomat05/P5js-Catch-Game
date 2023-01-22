@@ -14,6 +14,12 @@ class ObjectSpawner {
 		}
 	}
 
+	gameEnd() {
+		for (let i = 0; i < this.activeObjects.length; i++) {
+
+		}
+	}
+
 	spawn() {
 		let obj = this.fallingObjectsPool.shift();
 		obj.setActive();
@@ -38,7 +44,7 @@ class ObjectSpawner {
 		this.updateActiveObjects();
 
 		this.timeToNextSpawn -= deltaTime;
-		if (this.timeToNextSpawn <= 0) {
+		if (this.timeToNextSpawn <= 0 && this.activeObjects.length < this.maxObjectsInScene) {
 			this.spawn();
 			this.timeToNextSpawn = this.timeBetweenSpawns;
 			if (this.timeBetweenSpawns <= 400) {
