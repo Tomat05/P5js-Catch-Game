@@ -1,19 +1,31 @@
 class startMenu{
-    
+
+
     constructor(){
         this.rectSize = windowWidth/6;
+        this.eachIncrease = (348 / totalLevels - 2);
     }
 
-    display(){
+    updateWindow(){
+        this.rectSize = windowWidth/6;     //for when window is resized
+    }
+
+    display(){     //updates in draw
         textSize(50);
         textAlign(CENTER);
+        fill(0);
         text("Catch Game!",windowWidth/2, 100);
         this.instructions();
+        fill(255);
         rect(((windowWidth/4) - (this.rectSize/2)), ((windowHeight/2)- (this.rectSize/4)), this.rectSize,this.rectSize/2); //the button
         textSize(30);
+        fill(0);
         text("Start Game",windowWidth/4,windowHeight/2+10);
+        text("Level: "+level,windowWidth/2,(windowHeight/14) * 12);
+        text("Use arrow keys to change level",windowWidth/2,(windowHeight/14) * 13);
+        // this.difficultyBar();
     }
-    
+
     
     
     
@@ -24,14 +36,42 @@ class startMenu{
         let hiY = (windowHeight/2)- (this.rectSize/4) + this.rectSize/2;
         if (((mouseX > lowX) && (mouseX < hiX)) && ((mouseY > lowY) && (mouseY < hiY))){     //supposed to check if mouse is within box
             return true;     //update if game is playing
+        }else{
+            return false;
         }
-        return false;
     }
 
-    instructions(){
+    instructions(){    //displayes the instructions
         textSize(30);
-        text ("Instruction ln 1",(windowWidth/4)*3,((windowHeight/2)-(windowHeight/8)));
-        text ("Instruction ln 2",(windowWidth/4)*3,(windowHeight/2));
-        text ("Instruction ln 3",(windowWidth/4)*3,((windowHeight/2)+(windowHeight/8)));
+        textAlign(CENTER);
+        fill(0);
+        text ("Catch the falling objects",(windowWidth/4)*3,((windowHeight/2)-(windowHeight/10)));
+        text ("Miss 5 catches and you loose",(windowWidth/4)*3,(windowHeight/2));
+        text ("Catch 3 incorrectly and also loose",(windowWidth/4)*3,((windowHeight/2)+(windowHeight/10)));
     }
+
+    // difficultyBar(){
+    //     let lowX = (windowWidth/10);         //bounds on the outer bar
+    //     let highX = (windowWidth/10) * 9;
+    //     let lowY = (windowHeight/14) * 12;
+    //     let highY = (windowHeight/14) * 13;
+    //     fill(255);
+    //     rect(lowX ,lowY ,highX - lowX ,highY - lowY);
+    //     //colour of the bar
+    //     let changeAmount = (this.eachIncrease * level - 1);
+    //     changeAmount = int(changeAmount)
+    //     let red;
+    //     let green;
+    //     if (changeAmount > 174){
+    //         green = 17;
+    //         red = 17 + (changeAmount - 174);
+    //     } else{
+    //         red = 17;
+    //         green = 191 - changeAmount;
+    //     }
+    //     // The bar itself
+    //     let progress = (highX - lowX) * (level/this.totalLevels);
+    //     fill(red, green, 17);
+    //     rect (lowX ,lowY, lowX + progress ,highY - lowY);
+    // }
 }
