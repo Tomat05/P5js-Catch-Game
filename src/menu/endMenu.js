@@ -4,6 +4,7 @@ class endMenu{
     }
 
     display(){
+        push();
         textAlign(CENTER);
         textSize(100);
         fill("red");
@@ -11,12 +12,15 @@ class endMenu{
         this.feedback();
         textSize(30);
         text("Press tab to return to the menu", windowWidth/2,(windowHeight/10)*7)
+        pop();
     }
 
     feedback(){
-        if (missed == 5){
-            textSize(30);
-            text("You missed too many",windowWidth/2,(windowHeight/10)*6);
+        textSize(50);
+        if (missed >= 5){
+            text("You failed to catch " + missed + " objects", windowWidth/2, (windowHeight/10)*5);
+        } else if (badCaught >= 3) {
+            text("You caught " + badCaught + " bad objects", windowWidth/2, (windowHeight/10)*5);
         }
     }
 
@@ -26,6 +30,7 @@ class endMenu{
         }
         missed = 0;
         caught = 0;
+        badCaught = 0;
         scene = 0;
     }
 } 

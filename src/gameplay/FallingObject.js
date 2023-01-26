@@ -3,12 +3,15 @@ class FallingObject {
         this.position = createVector(100, 100);
         this.velocity = 0;
 
+        this.objType = 0;
+
         this.active = false;
     }
 
-    setActive() {
-        this.active = true;
+    setActive(setType) {
         this.position = createVector(random(100, windowWidth - 100), 100);
+        this.objType = setType;
+        this.active = true;
     }
 
     reset() {
@@ -20,7 +23,7 @@ class FallingObject {
     draw() {
         push();
         noStroke();
-        fill(0, 255, 0);
+        this.objType === 0 ? fill(0, 255, 0) : fill(255, 0, 0);
         circle(this.position.x, this.position.y, 75);
         pop();
     }
@@ -36,13 +39,15 @@ class FallingObject {
         }
         this.updatePosition();
         if (this.position.y >= windowHeight + 40) {
-            missed++;
+            if (this.objType === 0) {
+                missed++;
+            }
             return true;
         }
 
         if (this.position.x > mouseX - 37.5 && this.position.x < mouseX + 37.5
-            && this.position.y >= windowHeight - 125) {
-            caught++;
+        && this.position.y >= windowHeight - 125 && this.position.y <= windowHeight - 75) {
+            this.objType === 0 ? caught++ : badCaught++;
             return true;
         }
 

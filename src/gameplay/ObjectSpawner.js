@@ -22,7 +22,8 @@ class ObjectSpawner {
 
 	spawn() {
 		let obj = this.fallingObjectsPool.shift();
-		obj.setActive();
+		let goodOrBad = Math.round(Math.random());
+		obj.setActive(goodOrBad);
 		this.activeObjects.push(obj);
 	}
 
@@ -30,6 +31,7 @@ class ObjectSpawner {
 		let obj = this.activeObjects.shift();
 		obj.reset();
 		this.fallingObjectsPool.push(obj);
+		console.log(this.fallingObjectsPool.length);
 	}
 
 	updateActiveObjects() {

@@ -6,6 +6,8 @@ let difficulty = (level * 0.1) + 0.9;
 let totalLevels = 5;
 let caught = 0;
 let missed = 0;
+let badCaught = 0;
+let deathReason = "";
 let scores = [];
 
 
@@ -66,15 +68,16 @@ function draw() {
     		break;
   	}
 
-	if (missed >= 5) {
+	if (missed >= 5 || badCaught >= 3) {
 		scene = 2;
 	}
 
 	push();
 	textSize(30);
 	textAlign("right", "top");
-	text("Caught: " + caught + "\nMissed: " + missed + "\nLevel: " + level, windowWidth - 30, 20);
+	text("Caught: " + caught + "\nMissed: " + missed + "\nBad: " + badCaught + "\nLevel: " + level, windowWidth - 30, 20);
 	pop();
+
 }
 
 function mousePressed(){
