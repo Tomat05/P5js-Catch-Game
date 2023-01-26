@@ -6,17 +6,22 @@ let difficulty = (level * 0.1) + 0.9;
 let totalLevels = 5;
 let caught = 0;
 let missed = 0;
+let scores = [];
 
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
   
   	menu = new startMenu();
-
+	endScreen = new endMenu();
 	player = new Player();
   
   	spawner = new ObjectSpawner();
 	spawner.setup();
+
+	for (let i = 0; i < scores.length ; i++){
+		scores[i]=0;
+	}
 }
 
 function windowResized(){
@@ -36,7 +41,11 @@ function keyPressed() {
 		difficulty = (level * 0.1) + 1;
 	  }
 	}
+	if (keyCode === TAB && scene == 2){
+		endScreen.reset();
+	}
 }
+
 
 function draw() {
 	background(220);
@@ -50,12 +59,15 @@ function draw() {
 			spawner.onFrameUpdate();
 			player.onFrameUpdate();
 			break;
+		case 2:
+			endScreen.display();
+			break;
     	default:
     		break;
   	}
 
 	if (missed >= 5) {
-		scene = 3;
+		scene = 2;
 	}
 
 	push();

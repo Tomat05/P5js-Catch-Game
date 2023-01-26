@@ -24,6 +24,8 @@ class startMenu{
         text("Level: "+level,windowWidth/2,(windowHeight/14) * 12);
         text("Use arrow keys to change level",windowWidth/2,(windowHeight/14) * 13);
         // this.difficultyBar();
+        textAlign("left", "top");
+	    text("Best Score: "+scores[level - 1],windowWidth + 30, 20)
     }
 
     
