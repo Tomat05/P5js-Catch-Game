@@ -22,7 +22,10 @@ class ObjectSpawner {
 
 	spawn() {
 		let obj = this.fallingObjectsPool.shift();
-		let goodOrBad = Math.round(Math.random());
+		let goodOrBad = 0
+		if (Math.round(Math.random()) === 0) {
+			goodOrBad = Math.round(Math.random());
+		}
 		obj.setActive(goodOrBad);
 		this.activeObjects.push(obj);
 	}
