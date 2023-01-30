@@ -24,16 +24,11 @@ class ObjectSpawner {
 
 	spawn() {
 		let obj = this.fallingObjectsPool.shift();
-<<<<<<< HEAD
-		let goodOrBad = Math.round(Math.random());
-		obj.setActive(goodOrBad, this.images[goodOrBad]);
-=======
 		let goodOrBad = 0
 		if (Math.round(Math.random()) === 0) {
 			goodOrBad = Math.round(Math.random());
 		}
-		obj.setActive(goodOrBad);
->>>>>>> in-progress
+		obj.setActive(goodOrBad, this.images[goodOrBad]);
 		this.activeObjects.push(obj);
 	}
 
