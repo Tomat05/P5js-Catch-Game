@@ -1,7 +1,9 @@
 class Player {
-	constructor() {
+	constructor(image) {
 		this.size = 75;
         this.position = createVector(0, windowHeight - this.size - 50);
+
+        this.sprite = image;
 	}
 
     updatePlayerPos(){
@@ -11,8 +13,10 @@ class Player {
     // handles drawing character sprite to screen
 	draw() {
 		push();
-		fill(255);
-		rect(this.position.x, this.position.y, this.size, this.size);
+		// fill(255);
+		// rect(this.position.x, this.position.y, this.size, this.size);
+        this.sprite.resize(120, 120);
+        image(this.sprite, this.position.x - 25, this.position.y);
 		pop();
 	}
 

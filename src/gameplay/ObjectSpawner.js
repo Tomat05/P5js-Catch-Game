@@ -16,12 +16,6 @@ class ObjectSpawner {
 		}
 	}
 
-	// gameEnd() {
-	// 	for (let i = 0; i < this.activeObjects.length; i++) {
-
-	// 	}
-	// }
-
 	spawn() {
 		let obj = this.fallingObjectsPool.shift();
 		let goodOrBad = 0
