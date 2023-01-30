@@ -18,6 +18,7 @@ function preload() {
 	backgroundImg = loadImage('src/resources/traces.png');
 	catchImg = loadImage('src/resources/virussy.png');
 	missImg = loadImage('src/resources/mail.png')
+	bsod = loadImage('src/resources/blue_screen_of_death.png')
 }
 
 function setup() {
@@ -61,8 +62,12 @@ function keyPressed() {
 function draw() {
 	background(220);
 	backgroundImg.resize(1920, 1080);
-	image(backgroundImg, 0, 0);
-
+	bsod.resize(1920, 1080);
+	if (scene === 2){
+		image(bsod, 0, 0);
+	}else{
+		image(backgroundImg, 0, 0);
+	}
 	switch (scene) {
     	case 0:
       		menu.display();
@@ -85,6 +90,7 @@ function draw() {
 
 	push();
 	textSize(30);
+	fill(255);
 	textAlign("right", "top");
 	text("Caught: " + caught + "\nMissed: " + missed + "\nBad: " + badCaught + "\nLevel: " + level, windowWidth - 30, 20);
 	pop();

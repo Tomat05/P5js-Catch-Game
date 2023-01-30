@@ -13,7 +13,7 @@ class startMenu{
     display(){     //updates in draw
         textSize(50);
         textAlign(CENTER);
-        fill(0);
+        fill(255);
         text("Catch Game!",windowWidth/2, 100);
         this.instructions();
         fill(255);
@@ -21,6 +21,7 @@ class startMenu{
         textSize(30);
         fill(0);
         text("Start Game",windowWidth/4,windowHeight/2+10);
+        fill(255)
         text("Level: "+level,windowWidth/2,(windowHeight/14) * 12);
         text("Use arrow keys to change level",windowWidth/2,(windowHeight/14) * 13);
         // this.difficultyBar();
@@ -46,10 +47,10 @@ class startMenu{
     instructions(){    //displayes the instructions
         textSize(30);
         textAlign(CENTER);
-        fill(0);
-        text ("Catch the falling objects",(windowWidth/4)*3,((windowHeight/2)-(windowHeight/10)));
-        text ("Miss 5 catches and you loose",(windowWidth/4)*3,(windowHeight/2));
-        text ("Catch 3 incorrectly and also loose",(windowWidth/4)*3,((windowHeight/2)+(windowHeight/10)));
+        fill(255);
+        text ("Block the viruses",(windowWidth/4)*3,((windowHeight/2)-(windowHeight/10)));
+        text ("Miss 5 viruses and you loose",(windowWidth/4)*3,(windowHeight/2));
+        text ("Block 3 emails and also loose",(windowWidth/4)*3,((windowHeight/2)+(windowHeight/10)));
     }
 
     // difficultyBar(){
