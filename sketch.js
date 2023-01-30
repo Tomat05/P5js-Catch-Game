@@ -2,7 +2,7 @@ let player;
 let scene = 0;
 let menu;
 let level = 1;
-let difficulty = (level * 0.1) + 0.9;
+let difficulty = (level * 0.05) + 0.95;
 let totalLevels = 5;
 let caught = 0;
 let missed = 0;
