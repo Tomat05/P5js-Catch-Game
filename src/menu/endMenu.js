@@ -18,9 +18,9 @@ class endMenu{
     feedback(){
         textSize(50);
         if (missed >= 5){
-            text("You failed to catch " + missed + " objects", windowWidth/2, windowHeight - 250);
+            text("You failed to block " + missed + " viruses", windowWidth/2, windowHeight - 250);
         } else if (badCaught >= 3) {
-            text("You caught " + badCaught + " bad objects", windowWidth/2, windowHeight - 250);
+            text("You blocked " + badCaught + " mail", windowWidth/2, windowHeight - 250);
         }
     }
 
