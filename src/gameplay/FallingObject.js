@@ -6,11 +6,14 @@ class FallingObject {
         this.objType = 0;
 
         this.active = false;
+
+        this.sprite;
     }
 
-    setActive(setType) {
+    setActive(setType, image) {
         this.position = createVector(random(100, windowWidth - 100), 100);
         this.objType = setType;
+        this.sprite = image;
         this.active = true;
     }
 
@@ -25,6 +28,8 @@ class FallingObject {
         noStroke();
         this.objType === 0 ? fill(0, 255, 0) : fill(255, 0, 0);
         circle(this.position.x, this.position.y, 75);
+        this.sprite.resize(125, 125)
+        image(this.sprite, this.position.x - 62.5, this.position.y - 62.5);
         pop();
     }
 

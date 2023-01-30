@@ -10,6 +10,15 @@ let badCaught = 0;
 let deathReason = "";
 let scores = [];
 
+let backgroundImg;
+let badImg;
+let goodImg;
+
+function preload() {
+	backgroundImg = loadImage('src/resources/traces.png');
+	catchImg = loadImage('src/resources/virussy.png');
+	missImg = loadImage('src/resources/mail.png')
+}
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
@@ -18,7 +27,7 @@ function setup() {
 	endScreen = new endMenu();
 	player = new Player();
   
-  	spawner = new ObjectSpawner();
+  	spawner = new ObjectSpawner([catchImg, missImg]);
 	spawner.setup();
 
 	for (let i = 0; i < scores.length ; i++){
@@ -51,6 +60,8 @@ function keyPressed() {
 
 function draw() {
 	background(220);
+	backgroundImg.resize(1920, 1080);
+	image(backgroundImg, 0, 0);
 
 	switch (scene) {
     	case 0:

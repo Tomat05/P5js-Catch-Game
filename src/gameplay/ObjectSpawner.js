@@ -1,11 +1,13 @@
 class ObjectSpawner {
-	constructor() {
+	constructor(images) {
 		this.timeToNextSpawn = 1000;
 		this.timeBetweenSpawns = 2500;
 
 		this.maxObjectsInScene = 6;
 		this.fallingObjectsPool = [];
 		this.activeObjects = [];
+
+		this.images = images;
 	}
 
 	setup() {
@@ -14,16 +16,16 @@ class ObjectSpawner {
 		}
 	}
 
-	gameEnd() {
-		for (let i = 0; i < this.activeObjects.length; i++) {
+	// gameEnd() {
+	// 	for (let i = 0; i < this.activeObjects.length; i++) {
 
-		}
-	}
+	// 	}
+	// }
 
 	spawn() {
 		let obj = this.fallingObjectsPool.shift();
 		let goodOrBad = Math.round(Math.random());
-		obj.setActive(goodOrBad);
+		obj.setActive(goodOrBad, this.images[goodOrBad]);
 		this.activeObjects.push(obj);
 	}
 
