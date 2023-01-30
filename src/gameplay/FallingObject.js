@@ -26,10 +26,8 @@ class FallingObject {
     draw() {
         push();
         noStroke();
-        this.objType === 0 ? fill(0, 255, 0) : fill(255, 0, 0);
-        circle(this.position.x, this.position.y, 75);
-        this.sprite.resize(125, 125)
-        image(this.sprite, this.position.x - 62.5, this.position.y - 62.5);
+        this.sprite.resize(100, 100)
+        image(this.sprite, this.position.x - 50, this.position.y - 50);
         pop();
     }
 

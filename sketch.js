@@ -13,11 +13,13 @@ let scores = [];
 let backgroundImg;
 let badImg;
 let goodImg;
+let fireWall;
 
 function preload() {
 	backgroundImg = loadImage('src/resources/traces.png');
 	catchImg = loadImage('src/resources/virussy.png');
-	missImg = loadImage('src/resources/mail.png')
+	missImg = loadImage('src/resources/mail.png');
+	fireWall = loadImage('src/resources/firewall.png');
 }
 
 function setup() {
@@ -25,7 +27,7 @@ function setup() {
   
   	menu = new startMenu();
 	endScreen = new endMenu();
-	player = new Player();
+	player = new Player(fireWall);
   
   	spawner = new ObjectSpawner([catchImg, missImg]);
 	spawner.setup();
